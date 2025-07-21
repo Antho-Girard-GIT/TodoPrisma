@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-import { PrismaClient } from "../../../prisma/app/generated/prisma/client";
+import { PrismaClient } from "../../../generated/prisma/client";
+import { withAccelerate } from '@prisma/extension-accelerate'
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient().$extends(withAccelerate());
 
 export async function GET() {
   const todos = await prisma.post.findMany({ orderBy: { createdAt: "desc" } });
