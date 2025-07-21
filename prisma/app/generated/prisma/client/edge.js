@@ -152,6 +152,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -162,7 +163,7 @@ const config = {
   },
   "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"app/generated/prisma/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Post {\n  id        Int      @id @default(autoincrement())\n  liste     String\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n",
   "inlineSchemaHash": "96270d5d1e93fc71773b0080adbcb6be447bc6f5e1b1efbaa5240547d081c126",
-  "copyEngine": false
+  "copyEngine": true
 }
 config.dirname = '/'
 
